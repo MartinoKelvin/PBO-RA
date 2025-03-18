@@ -15,7 +15,7 @@ class Calculator:
     
     def __truediv__(self, other):
         if other.angka == 0:
-            raise ValueError("Division by zero is not allowed")
+            raise ValueError("tidak boleh dibagi 0")
         return Calculator(self.angka / other.angka)
     
     def __pow__(self, other):
@@ -23,12 +23,11 @@ class Calculator:
     
     def log(self, base=math.e):
         if self.angka <= 0:
-            raise ValueError("Logarithm is undefined for zero or negative numbers")
+            raise ValueError("log tidak bisa dengan 0 atau bilangan negatif")
         return Calculator(math.log(self.angka, base))
     
     def __repr__(self):
-        return f"Calculator({self.angka})"
-
+        return str(self.angka) 
 
 x = Calculator(10)
 y = Calculator(2)
@@ -36,6 +35,6 @@ y = Calculator(2)
 print(x + y)  
 print(x - y)  
 print(x * y)  
-print(x / y) 
-print(x ** y)
+print(x / y)  
+print(x ** y) 
 print(x.log(10))
